@@ -8,8 +8,7 @@
 # Node
 ######################
 /node/
-node_tmp/
-node_modules/
+node_tmp/ node_modules/
 npm-debug.log.*
 ######################
 # SASS
@@ -129,6 +128,18 @@ Desktop.ini
 # ESLint
 ######################
 .eslintcache
+© 2020 GitHub, Inc.
+Terms
+Privacy
+Security
+Status
+Help
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About
 © 2020 GitHub, Inc.
 Terms
 Privacy
