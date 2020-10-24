@@ -7,9 +7,11 @@ import com.cybertek.services.Selenium;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
 
 @Configuration
 @ComponentScan("com.cybertek")
+@PropertySource("classpath:application.properties")
 public class CybertekAppConfig {
 
 
@@ -23,10 +25,10 @@ public class CybertekAppConfig {
         return new Selenium();
     }
 
-   /* @Bean
+   @Bean
     public OfficeHours officeHours(){
         return new OfficeHours();
-    }*/
+    }
 
     @Bean
     public ExtraSessions extraSessions(){
