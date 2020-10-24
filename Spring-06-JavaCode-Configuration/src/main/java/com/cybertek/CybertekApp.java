@@ -13,5 +13,9 @@ public class CybertekApp {
         Course course = container.getBean("java",Course.class);
 
         course.getTeachingHourse();
+
+        Course courseSelenium = container.getBean("selenium", Course.class);
+
+        courseSelenium.getTeachingHourse();
     }
 }
