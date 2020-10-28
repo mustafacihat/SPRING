@@ -16,7 +16,7 @@ public class Selenium implements Course {
 
     //Setter injection
     @Autowired
-    public void setOfficeHourse(OfficeHourse officeHourse) {
+    public void setOfficeHourse(OfficeHours officeHourse) {
         this.officeHourse = officeHourse;
     }
 
