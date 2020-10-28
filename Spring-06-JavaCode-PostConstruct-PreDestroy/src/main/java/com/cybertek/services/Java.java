@@ -1,6 +1,7 @@
 package com.cybertek.services;
 
 import com.cybertek.interfaces.Course;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
@@ -8,6 +9,7 @@ import javax.annotation.PreDestroy;
 
 @Component
 //@Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
+@Scope("singleton")
 public class Java implements Course {
     @Override
     public void getTeachingHours() {
