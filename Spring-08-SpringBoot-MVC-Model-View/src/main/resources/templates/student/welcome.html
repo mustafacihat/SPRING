@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Student welcome</title>
+</head>
+<body>
+<!--Text-->
+<h2 th:text="${name}"></h2>
+<h3 th:text="${'the best course is ' + course}"></h3>
+<h4 th:text="${subject}"></h4>
+<h4 th:text="${id}"></h4>
+<h2 th:text="${numbers}"></h2>
+<h2 th:text="${numbers.get(2)}"></h2>
+<h4 th:text="${birthday}"></h4>
+<h2 th:text="${'hello ' + name}"></h2>
+<h2 th:text="${student.getFirstName()}"></h2>
+<h2 th:text="${student.firstName}"></h2>
+<h2 th:text="${student.id}"></h2>
+<h2 th:text="${student.lastName}"></h2>
+
+
+<!--Link-->
+
+<!--Absolute URLs-->
+<a th:href="@{https://www.thymeleaf.org/doc/tutorials/2.1/usingthymeleaf.html}">ThymeleafOfficialPage</a>
+<br>
+
+<!--Controller Mapping-->
+<a th:href="@{/student/register}">Register</a>
+<br>
+<!--Adding parameters to link-->
+<a th:href="@{/student/welcome(id=3)}">Link2</a>
+<a th:href="@{/student/welcome(id=${student.id})}">Link3</a>
+
+
+<!--Iteration-->
+
+<ul>
+    <li th:each="number : ${numbers}" th:text="${number}"></li>
+</ul>
+
+<!--Fragment-->
+<div th:replace="fragments/footer :: thyme"></div>
+</body>
+</html>
