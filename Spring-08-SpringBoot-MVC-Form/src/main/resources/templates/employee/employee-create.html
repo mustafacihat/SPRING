@@ -1,0 +1,145 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+          integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+
+    <title>Employee register</title>
+</head>
+<body>
+<div class="container d-flex justify-content-center">
+    <div class="card">
+        <h2 class="card-header p-5 p-3 mb-2 bg-success text-white">Welcome to Employee Registration Page</h2>
+        <div class="card-body">
+            <form class="needs-validation" novalidate action="#" th:action="@{/employee/list}" method="post" th:object="${employee}">
+                <div class="form-row">
+                    <div class="form-group col">
+                        <label for="firstName">First Name</label>
+                        <input type="text" class="form-control" id="firstName" th:field="*{firstName}"
+                               placeholder="First Name" required>
+                        <div class="invalid-feedback">
+                            Please enter first name.
+                        </div>
+                    </div>
+                    <div class="form-group col">
+                        <label for="lastName">Last Name</label>
+                        <input type="text" class="form-control" id="lastName" th:field="*{lastName}"
+                               placeholder="Last Name" required>
+                        <div class="invalid-feedback">
+                            Please enter last name.
+                        </div>
+                    </div>
+                    <div class="form-group col">
+                        <label for="birthDay">Birthday</label>
+                        <input type="date" class="form-control" id="birthDay" th:field="*{birthDay}">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="inputEmail4">Email</label>
+                        <input type="email" class="form-control" id="inputEmail4" th:field="*{email}"
+                               placeholder="Email" required>
+                        <div class="invalid-feedback">
+                            Please enter your email.
+                        </div>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="inputPassword4">Password</label>
+                        <input type="password" class="form-control" id="inputPassword4" th:field="*{password}"
+                               placeholder="Password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{4,}">
+                        <div class="invalid-feedback">
+                            Must contain at least one number and one uppercase and lowercase letter, and at least 4 or more characters
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputAddress">Address</label>
+                    <input type="text" class="form-control" id="inputAddress" th:field="*{address}"
+                           placeholder="1234 Main St" required>
+                    <div class="invalid-feedback">
+                        Please enter address.
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputAddress2">Address 2</label>
+                    <input type="text" class="form-control" th:field="*{address2}" id="inputAddress2"
+                           placeholder="Apartment, studio, or floor">
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="inputCity">City</label>
+                        <input type="text" class="form-control" th:field="*{city}" id="inputCity" required>
+                        <div class="invalid-feedback">
+                            Please enter city.
+                        </div>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="inputState">State</label>
+                        <select id="inputState" th:field="*{state}" class="form-control">
+                            <option th:each="theState : ${stateList}" th:value="${theState}" th:text="${theState}">...</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label for="inputZip">Zip</label>
+                        <input type="text" class="form-control" th:field="*{zipCode}" minlength="5" maxlength="5" pattern="[0-9]{5}" id="inputZip" required>
+                        <div class="invalid-feedback">
+                            Please enter zip code.
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="gridCheck">
+                        <label class="form-check-label" for="gridCheck">
+                            I agree terms
+                        </label>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-danger">Register</button>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- Optional JavaScript; choose one of the two! -->
+
+<!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+        crossorigin="anonymous"></script>
+
+<!-- Option 2: jQuery, Popper.js, and Bootstrap JS
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
+-->
+<script>
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+    (function() {
+        'use strict';
+        window.addEventListener('load', function() {
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            var forms = document.getElementsByClassName('needs-validation');
+            // Loop over them and prevent submission
+            var validation = Array.prototype.filter.call(forms, function(form) {
+                form.addEventListener('submit', function(event) {
+                    if (form.checkValidity() === false) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                }, false);
+            });
+        }, false);
+    })();
+</script>
+</body>
+</html>
