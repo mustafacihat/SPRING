@@ -15,11 +15,8 @@ import java.util.Date;
 @Setter
 @Entity
 @Table(name = "employees")
-public class Employee {
+public class Employee extends BaseEntity {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long employeeId;
     private String firstName;
     private String lastName;
     private String email;
@@ -28,6 +25,15 @@ public class Employee {
     @Enumerated(EnumType.STRING)
     private Gender gender;
     private int salary;
+
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name = "department_id")
+    private Department department;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "region_id")
+    private Region region;
+
 
     public Employee(String firstName, String lastName,
                     String email, LocalDate hireDate, Gender gender, int salary) {
