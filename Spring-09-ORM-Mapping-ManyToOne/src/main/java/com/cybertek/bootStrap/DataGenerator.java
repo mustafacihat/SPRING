@@ -47,7 +47,7 @@ public class DataGenerator implements CommandLineRunner {
         Region r1 = new Region("Southwest","United States");
         Region r2 = new Region("Central","United States");
         Region r3 = new Region("Northwest","United States");
-        Region r4 = new Region("Quebec'","Canada");
+        Region r4 = new Region("Quebec","Canada");
         Region r5 = new Region("Central","Asia");
 
         employeeList.addAll(Arrays.asList(e1, e2, e3, e4, e5));
