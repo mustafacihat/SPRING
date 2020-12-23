@@ -53,6 +53,8 @@ public class DerivedqueriesApplication {
         System.out.println("-------Employee Start---------");
         System.out.println("findByEmailIsNull: " + employeeRepository.findByEmailIsNull());
         System.out.println("-------Employee End---------");
+
+        //System.out.println(employeeRepository.getEmployeeDetail("apaddisonv@lulu.com"));
     }
 
 }

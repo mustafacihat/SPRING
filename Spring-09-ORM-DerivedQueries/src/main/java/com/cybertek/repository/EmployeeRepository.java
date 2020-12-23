@@ -2,6 +2,7 @@ package com.cybertek.repository;
 
 import com.cybertek.entity.Employee;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import java.time.LocalDate;
@@ -39,4 +40,7 @@ public interface EmployeeRepository extends JpaRepository<Employee, Long> {
 
     //Display all employees that do not have email address
     List<Employee>findByEmailIsNull();
+
+    /*@Query("SELECT e from Employee  e WHERE e.email = ?1")
+    Employee getEmployeeDetail(String email);*/
 }
