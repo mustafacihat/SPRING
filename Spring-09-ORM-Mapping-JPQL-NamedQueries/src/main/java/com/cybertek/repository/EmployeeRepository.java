@@ -2,10 +2,12 @@ package com.cybertek.repository;
 
 import com.cybertek.entity.Employee;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import javax.transaction.Transactional;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
@@ -32,7 +34,7 @@ public interface EmployeeRepository extends JpaRepository<Employee, Long> {
     Employee getEmployeeBySalary(@Param("salary") int salary);
 
     //multiple named parameters
-    @Query("select e from Employee e where e.firstName=:name or e.salary=: salary ")
+    @Query("select e from Employee e where e.firstName=:name or e.salary=:salary ")
     List<Employee> getEmployeeByFirstNameOrSalary(@Param("name") String firstName, @Param("salary") int salary);
 
     //not Equal
@@ -75,6 +77,24 @@ public interface EmployeeRepository extends JpaRepository<Employee, Long> {
     //Sort Salary in descending order
     @Query("select e from Employee e order by e.salary desc")
     List<Employee> getEmployeeBySalaryOrderByDesc();
+
+    //Native Query
+    @Query(value = "select * from employees where salary = ?1 ", nativeQuery = true)
+    List<Employee> readEmployeeBySalary(Integer salary);
+
+    @Modifying
+    @Transactional
+    @Query("update Employee e set e.email='admin@email.com' where e.id = :id")
+    void updateEmployeeJPQL(@Param("id") Long id);
+
+
+    @Modifying
+    @Transactional
+    @Query(value = "update employees set email = 'admin@email.com' where id =:id ", nativeQuery = true)
+    void updateEmployeeNativeQuery(@Param("id") Long id);
+
+    //Named query
+    List<Employee> retrieveEmployeeSalaryGreaterThan(Integer salary);
 
 
 

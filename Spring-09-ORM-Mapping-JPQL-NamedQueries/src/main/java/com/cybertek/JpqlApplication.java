@@ -21,6 +21,9 @@ public class JpqlApplication {
         System.out.println(employeeRepository.getEmployeeDetail());
         System.out.println(employeeRepository.getEmployeeSalary());
         System.out.println(employeeRepository.getEmployeeByEmail("abendelowg@google.com.hk"));
+        employeeRepository.updateEmployeeJPQL(5L);
+
+        employeeRepository.retrieveEmployeeSalaryGreaterThan(100000);
 
 
 
