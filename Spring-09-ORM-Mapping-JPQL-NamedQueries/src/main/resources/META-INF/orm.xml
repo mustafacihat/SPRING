@@ -1,0 +1,13 @@
+<entity-mappings version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence/orm"
+                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                 xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence/orm
+    http://xmlns.jcp.org/xml/ns/persistence/orm_2_1.xsd">
+
+    <named-query name="Region.findAllRegionsByCountry">
+        <query>select r from Region r where r.country= ?1</query>
+    </named-query>
+
+    <named-native-query name="Region.findAllRegions" result-class="com.cybertek.entity.Region">
+        <query>select * from regions</query>
+    </named-native-query>
+</entity-mappings>
