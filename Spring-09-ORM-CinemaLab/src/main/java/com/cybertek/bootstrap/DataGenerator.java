@@ -6,7 +6,6 @@ import com.cybertek.enums.MovieType;
 import com.cybertek.enums.UserRole;
 import com.cybertek.repository.*;
 import org.springframework.boot.CommandLineRunner;
-import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -14,16 +13,16 @@ import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.List;
 
-@Component
+//@Component
 public class DataGenerator implements CommandLineRunner {
-    private final MovieReporsitory movieRepository;
+    private final MovieRepository movieRepository;
     private final CinemaRepository cinemaRepository;
     private final GenreRepository genreRepository;
     private final UserRepository userRepository;
     private final MovieCinemaRepository movieCinemaRepository;
     private final TicketRepository ticketRepository;
 
-    public DataGenerator(MovieReporsitory movieRepository, CinemaRepository cinemaRepository, GenreRepository genreRepository, UserRepository userRepository, MovieCinemaRepository movieCinemaRepository, TicketRepository ticketRepository) {
+    public DataGenerator(MovieRepository movieRepository, CinemaRepository cinemaRepository, GenreRepository genreRepository, UserRepository userRepository, MovieCinemaRepository movieCinemaRepository, TicketRepository ticketRepository) {
         this.movieRepository = movieRepository;
         this.cinemaRepository = cinemaRepository;
         this.genreRepository = genreRepository;

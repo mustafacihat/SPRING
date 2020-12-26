@@ -26,9 +26,19 @@ public class Ticket extends BaseEntity{
     @JoinColumn(name = "user_account_id")
     private User user;
 
+
     public Ticket( Integer seatNumber, Integer rowNumber,LocalDateTime dateTime) {
         this.dateTime = dateTime;
         this.seatNumber = seatNumber;
         this.rowNumber = rowNumber;
+    }
+
+    @Override
+    public String toString() {
+        return "Ticket{" +
+                "dateTime=" + dateTime +
+                ", seatNumber=" + seatNumber +
+                ", rowNumber=" + rowNumber +
+                '}';
     }
 }
