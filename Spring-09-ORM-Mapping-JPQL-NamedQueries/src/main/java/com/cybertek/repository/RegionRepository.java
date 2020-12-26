@@ -2,12 +2,17 @@ package com.cybertek.repository;
 
 import com.cybertek.entity.Region;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 @Repository
 public interface RegionRepository extends JpaRepository<Region, Long> {
+
+    List<Region> findAllRegionsByCountry(String country);
+    List<Region>findAllRegions();
+
 
     //Display all regions in Canada
     List<Region> findByCountry(String country);

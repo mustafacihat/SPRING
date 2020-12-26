@@ -16,6 +16,7 @@ import java.time.LocalDate;
 @Setter
 @NoArgsConstructor
 @ToString
+
 public class Employee extends BaseEntity{
 
     private String firstName;
